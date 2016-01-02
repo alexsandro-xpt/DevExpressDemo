@@ -5,10 +5,10 @@ var WebpackNotifierPlugin = require('webpack-notifier');
 
 
 module.exports = {
-    context: path.resolve(__dirname, "app"),
+    context: path.resolve(__dirname, "src"),
     devtool: 'eval',
     entry: {
-        app: ['./assets/js/index.js'],
+        app: ['./assets/js/app.js'],
         vendors: ['angular', 'angular-resource', 'angular-ui-router', 'angular-sanitize', 'oclazyload'/*,'jquery', 'devextreme/js/dx.all'*/]
     },
     output: {
@@ -18,7 +18,7 @@ module.exports = {
         chunkFilename: "js/[id].bundle.js"
     },
     externals:[
-        {
+        {   
             jquery:'jQuery',
             DevExpress:'DevExpress'
         }

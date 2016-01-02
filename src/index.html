@@ -12,8 +12,7 @@
     <!-- Uncomment the line below to disable phone format detection  -->
     <!--<meta name="format-detection" content="telephone=no">-->
 
-    <script type="text/javascript" src="cordova.js"></script>
-
+<!--
     <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.common.css" />    
     <link rel="dx-theme" data-theme="ios7.default" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.ios7.default.css" />
     <link rel="dx-theme" data-theme="android5.light" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.android5.light.css" data-active="true" />
@@ -21,46 +20,95 @@
     <link rel="dx-theme" data-theme="win8.white" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.win8.white.css" data-active="false" />
     <link rel="dx-theme" data-theme="generic.light" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.light.css" />
     <link rel="dx-theme" data-theme="generic.dark" href="http://cdn3.devexpress.com/jslib/15.1.8/css/dx.dark.css" />
-    <link rel="stylesheet" href="css/app.css" />
+-->
+
+    <link rel="stylesheet" type="text/css" href="http://cdn3.devexpress.com/jslib/15.2.4/css/dx.common.css" />    
+    <link rel="dx-theme" data-theme="android5.light" href="http://cdn3.devexpress.com/jslib/15.2.4/css/dx.android5.light.css"/>
+	<link rel="dx-theme" data-theme="ios7.default" href="http://cdn3.devexpress.com/jslib/15.2.4/css/dx.ios7.default.css" />
+	<link rel="dx-theme" data-theme="win10.black" href="http://cdn3.devexpress.com/jslib/15.2.4/css/dx.win10.black.css"/>
+	<link rel="dx-theme" data-theme="generic.dark" href="http://cdn3.devexpress.com/jslib/15.2.4/css/dx.dark.css"/>
+    
+    
+    <link rel="stylesheet" href="/assets/css/app.css" />
 </head>
 <body>
-    <div class="dx-viewport dx-ios-stripes slideout-layout" ng-controller="SlideOutCtrl as slideOut" dx-slide-out="{
-            items: slideOut.navigationItems,
-            onSelectionChanged: slideOut.itemSelected,
-            onItemClick: slideOut.itemClick,
+
+    <div class="dx-viewport dx-ios-stripes slideout-layout" ng-controller="ctrApp as cAp" dx-slide-out="{
+            items: cAp.navigationItems,
+            onSelectionChanged: cAp.itemSelected,
+            onItemClick: cAp.itemClick,
             bindingOptions: {
-                menuVisible: 'slideOut.menuVisible',
-                selectedIndex: 'slideOut.selectedIndex'
+                menuVisible: 'cAp.menuVisible',
+                selectedIndex: 'cAp.selectedIndex'
             }
         }">
         <div data-options="dxTemplate: { name: 'item' } ">
-            <div ng-view></div>
+            <div ng-include="'toolbar.html'"></div>
+            
+            <div dx-toolbar="{ dataSource: toolbarItems }">        
+            </div>
+
+            <div ui-view></div>
         </div>
     </div>
+    
 
+
+    <script type="text/ng-template" id="toolbar.html">
+    <p>teste132</p><!--
+        <div ng-controller="ToolbarCtrl as toolbar" dx-toolbar="{
+        items: [
+            { location: 'before', widget: 'button',
+                options: {
+                    icon: 'menu',
+                    onClick: toolbar.toggleMenu
+                }
+            },
+            { location: 'center' }
+        ],
+        bindingOptions: { 'items[1].text': 'toolbar.title' }
+        }">
+
+        </div>-->
+
+    </script>
+    
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/SharedStatic/DevExtreme/15_1/lib/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <!--[if gte IE 9]><!-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!--<![endif]-->
+    
     <script src="http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js"></script>
+    
+
+    <script src="/assets/vendors/js/applibs.js"></script>
+
+    <script src="http://cdn3.devexpress.com/jslib/15.2.4/js/dx.all.js"></script>
+<!--
+     
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-sanitize.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.min.js"></script>
-    <script src="http://cdn3.devexpress.com/jslib/15.1.8/js/dx.phonejs.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
+-->
 
     <script>
         var viewPort = $(".dx-viewport");
 
-        DevExpress.ui.themes.attachCssClasses(viewPort);
+        //DevExpress.ui.themes.attachCssClasses(viewPort);
         DevExpress.devices.attachCssClasses(viewPort);
     </script>
+    
+    
+    <script src="/assets/js/appbundle.js"></script>
+    
 </body>
 </html>

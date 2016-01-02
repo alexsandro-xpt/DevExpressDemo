@@ -1,0 +1,77 @@
+html, 
+body,
+.dx-viewport {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.view-content p {
+    padding: 5px;
+}
+
+.view-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+}
+
+.schedule td { 
+    padding: 10px;
+}
+.time-field {
+    width: 40%;
+}
+.about-text {
+    padding: 5px 10px;
+}
+
+/* iOS 6 */
+.dx-theme-ios.slideout-layout .view-content {
+    top: 43px;
+}
+
+/* iOS7 */
+.dx-theme-ios7.slideout-layout .view-content {
+    top: 44px;
+    background-color: #EFEFF4;
+}
+
+/* Android */
+.dx-theme-android.slideout-layout .view-content {
+    top: 46px;
+}
+
+/* Android 5 */
+.dx-theme-android5.slideout-layout .view-content {
+    top: 56px;
+}
+
+/* Windows 8 */
+.dx-theme-win8.slideout-layout .view-content {
+    top: 88px;    
+}
+/* Windows phone 8 */
+.dx-theme-win8.slideout-layout.dx-device-phone .view-content {
+    top: 60px;    
+}
+
+/* Tizen theme */
+.dx-theme-tizen.slideout-layout .view-content {
+    top: 40px;
+}
+
+/* generic theme */
+.dx-theme-generic.slideout-layout .view-content {
+    top: 80px;
+}
+
+.dx-theme-generic.slideout-layout.dx-device-phone .view-content {
+    top: 50px;
+}
